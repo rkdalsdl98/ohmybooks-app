@@ -25,7 +25,7 @@ Bloc 패턴은 MVVM 패턴보다 체계적이며 그만큼 유지보수와 확�
 ## Sequence Diagram  
 
 <div align="center">
-  <img src="https://github.com/rkdalsdl98/healthyou-app/assets/77562358/a3d12fe9-12da-4213-af8d-b5902f88a169">
+  <img src="https://github.com/rkdalsdl98/ohmybooks-app/assets/77562358/824ebdc9-8245-46d3-88ad-cd7e791e35c3">
 </div>
 
 Kakao RestAPI를 사용 하였습니다.  
