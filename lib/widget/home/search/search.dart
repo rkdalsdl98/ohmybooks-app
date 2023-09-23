@@ -34,6 +34,11 @@ class _SearchState extends State<Search> {
     bloc.add(BookAddNextPageEvent());
   }
 
+  onSubmit(BuildContext context) {
+    FocusScope.of(context).unfocus();
+    searchBooks(context);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -62,6 +67,7 @@ class _SearchState extends State<Search> {
                 hintText: "책의 제목, 출판사, 저자 등을 입력하여 검색해보세요.",
                 width: 270,
                 onChanged: (value) => searchTerm = value,
+                onSubmit: onSubmit,
               ),
               CustomDropDownButton(
                 currValue: target,
@@ -272,6 +278,7 @@ Widget inputHelper(
   double? width,
   String? Function(String?)? validator,
   Function(String)? onChanged,
+  Function(BuildContext)? onSubmit,
 }) {
   return SizedBox(
     width: (width ?? 45) * getScaleFactorFromWidth(context),
@@ -279,6 +286,7 @@ Widget inputHelper(
     child: TextFormField(
       autocorrect: false,
       onChanged: onChanged,
+      onEditingComplete: () => onSubmit == null ? null : onSubmit(context),
       validator: validator,
       keyboardType: inputType,
       textAlignVertical: TextAlignVertical.bottom,
